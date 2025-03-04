@@ -7,7 +7,10 @@ function twoSum(nums: number[], target: number): number[] {
     for(let i = 0; i < nums.length; i++){
         const complement = target - nums[i];
         if(numToIndex.has(complement) && numToIndex.get(complement) !== i){
-            return [i, numToIndex.get(complement)]
+            const secondIndex = numToIndex.get(complement)
+            if(secondIndex){
+            return [i, secondIndex ]
+          }
         }
     }
     return []; 
