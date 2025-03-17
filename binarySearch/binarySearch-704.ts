@@ -18,4 +18,24 @@ function binary_search(l, r, nums, target) {
 }
 
 //O(log n)
-//O(n)
+//O(log n)
+
+
+
+//compare these two funcs...  while version
+const findInArray = (arr: number[], target: number) => {
+    let low = 0;
+    let high = arr.length - 1;
+    while (low <= high) {
+        const mid = Math.floor((low + high) / 2)
+        if (arr[mid] === target) return true
+        if (target > arr[mid]) {
+            low = mid + 1
+        }
+        if (target < arr[mid]) {
+            high = mid - 1
+        }
+    }
+    return false
+
+}
