@@ -21,3 +21,8 @@ function characterReplacement(s: string, k: number): number {
     }
     return res;
 };
+
+//O(n*m)
+//O(m) 
+
+//m is unique chars in string
