@@ -34,3 +34,23 @@ The space complexity of the function is O(n).
 The space is primarily used by the numSet, which stores each element of the input array. In the worst case, all elements are unique, and the set will contain all n elements.
 Therefore, the space complexity is O(n).
 */
+
+
+function longestConsecutive2(nums: number[]): number {
+    const numSet:Set<number> = new Set(nums);
+    console.log(numSet);
+    let maxL = 0;
+
+    //look for if no left sibling... 
+    for (let i=0;i<nums.length;i++){
+        if(!numSet.has(nums[i]-1)){
+            let count = 1
+            while(numSet.has(nums[i]+count)){
+                count++
+            }
+            maxL = Math.max(maxL, count)
+        }
+    }
+
+    return maxL 
+}
