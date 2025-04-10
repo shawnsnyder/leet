@@ -30,4 +30,26 @@ function carFleet(target: number, position: number[], speed: number[]): number {
 
 //O(nlogn)
 //O(n)
-    
+   
+
+
+function carFleet2(target: number, position: number[], speed: number[]): number {
+  const pairs:[number,number][] = position.map((item, index)=>  [position[index], speed[index]])
+  pairs.sort( (a,b)=> b[0]-a[0])
+
+
+  let fleets = 1 
+
+  let prev = (target-pairs[0][0])/pairs[0][1];
+  for(let i=1;i<pairs.length;i++){
+      const current = (target-pairs[i][0])/pairs[i][1];
+      if(current > prev){
+          fleets++
+          prev = current
+      }
+  } 
+  return fleets 
+};
+
+//O(nlogn)
+//O(n)
